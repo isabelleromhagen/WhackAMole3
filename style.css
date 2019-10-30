@@ -1,0 +1,38 @@
+body{
+    background-color: blanchedalmond;
+    
+}
+
+p{
+    display: inline;
+}
+
+img{
+    width: 180px;
+    height: 180px;
+}
+
+.left{
+    margin-left: 400px;
+}
+
+.center{
+    margin-left: 600px;
+}
+
+.right{
+    margin-left: 800px;
+
+}
+
+#div1{
+    margin-top: 50px;
+}
+
+#div2{
+    margin-top: 250px;
+}
+
+#div3{
+    margin-top: 450px;
+}
