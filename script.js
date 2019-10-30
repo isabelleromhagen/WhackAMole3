@@ -1,11 +1,13 @@
 var myVar;
-var counter = 0;
+var score = 0;
 var clock = 0;
+var level = 1;
+var timing = 1000;
 
 $(document).ready(function(){
     $("img").click(function(){
-    counter++;
-    document.getElementById("count").innerHTML = counter;
+    score++;
+    document.getElementById("count").innerHTML = score;
     random();
     });
   });
@@ -43,7 +45,7 @@ if(randomNumber == 8){
 if(randomNumber == 9){
     $("#mole9").show();
 }
-myVar = setTimeout(random, 1000);
+myVar = setTimeout(random, timing);
 
 }
 
@@ -55,12 +57,26 @@ function realclock(){
     clock++;
     document.getElementById("clock").innerHTML = clock;
     if(clock==30){
-        window.alert("Time is up! Your score: " + counter);
-        counter = 0;
+        if (score >= 10){
+            window.alert("Congratz! You are qualified for the next level. Score: " + score);
+            score = 0;
+            clock = 0;
+            document.getElementById("count").innerHTML = score;
+            level++;
+            timing = timing * ((10-level)/10);
+        }
+        else{
+        window.alert("Time is up! Your score: " + score + " Sorry, you did not score enough to reach the next level.");
+        score = 0;
         clock = 0;
-        document.getElementById("count").innerHTML = counter;
+        document.getElementById("count").innerHTML = score;
+        timing = 1000;
+        }
     }
 }
+
+
+
 
 // to add: levels, make it prettier, modify the pop-up + quit/next level, prevent the image from hiding, disable block (p), set limit for levelling, save results in highscore
 
